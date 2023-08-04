@@ -1,9 +1,12 @@
 import React, {useId} from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {IContact} from '../@types';
 
-interface Props {}
+interface Props {
+  onSubmit: (body: IContact, error?: boolean) => void;
+}
 
-const ModalAddNew: React.FC<Props> = () => {
+const ModalAddNew: React.FC<Props> = ({onSubmit}) => {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [phone, setPhone] = React.useState('');
@@ -24,6 +27,7 @@ const ModalAddNew: React.FC<Props> = () => {
     if (emailError) {
       return;
     }
+    onSubmit({name, email, phone, id}, emailError);
   };
 
   return (
