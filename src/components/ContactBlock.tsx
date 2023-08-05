@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     flex: 2,
   },
   text: {
-    color: 'white',
+    color: 'black',
   },
   image: {
     width: 50,
